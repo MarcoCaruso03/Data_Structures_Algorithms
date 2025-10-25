@@ -21,6 +21,7 @@ template <typename T> class LinkedList{
         void pushback(const T& value);
         void popFront();
         void popBack();
+        size_t getLength () const {return length;}
         T& operator[](size_t index);
 };
 
