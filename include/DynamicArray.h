@@ -15,6 +15,7 @@ template <typename T> class DynamicArray{
         void pushBack(const T& value);
         void popBack();
         T& operator[](size_t index);
+        const T& operator[](size_t index) const; // for const object
         int size() const;
         int getCapacity() const;
         void print() const;
@@ -96,4 +97,10 @@ void DynamicArray<T>::print() const{
         std::cout<<data[i]<<" ";
     }
     std::cout<<std::endl;
+}
+
+template <typename T>
+const T& DynamicArray<T>::operator[](size_t index) const {
+    assert(index < length && "Indice fuori range!");
+    return data[index];
 }
