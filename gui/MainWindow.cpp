@@ -9,26 +9,16 @@
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
 {
-    ui.setupUi(this);  // collega tutti i widget dal .ui
+    // Setup the UI from Designer
+    ui.setupUi(this);
 
-    connect(ui.addButton, &QPushButton::clicked, this, &MainWindow::aggiungiDato);
+    // Connect the Start button to change the page
+    connect(ui.btnStart, &QPushButton::clicked, this, [this]() {
+        ui.stack->setCurrentIndex(1);
+    });
 
-    listaDati << "Dato 1" << "Dato 2";
-    aggiornaGUI();
+    // Optional: set initial page
+    ui.stack->setCurrentIndex(0); // welcome page
 }
 
 
-void MainWindow::aggiungiDato() {
-    QString testo = ui.inputLine->text();
-    if (!testo.isEmpty()) {
-        listaDati.append(testo);
-        ui.inputLine->clear();
-        aggiornaGUI();
-    }
-}
-
-void MainWindow::aggiornaGUI() {
-    ui.outputText->clear();
-    for (const QString &dato : listaDati)
-        ui.outputText->append(dato);
-}

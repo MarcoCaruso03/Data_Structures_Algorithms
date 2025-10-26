@@ -9,7 +9,8 @@
 #include <QLineEdit>
 #include <QVBoxLayout>
 #include <QStringList>
-#include "ui_mainwindow.h" // generato da Qt Designer
+#include <QStackedWidget>
+#include "ui_mainwindow.h"  
 
 class MainWindow : public QMainWindow
 {
@@ -17,13 +18,11 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
 private slots: 
-    void aggiungiDato();     // aggiunge un nuovo dato
-    void aggiornaGUI();      // aggiorna il QTextEdit
+    
 
 
 private: 
-    Ui::MainWindow ui;  // oggetto generato da Qt Designer
-    QStringList listaDati;
+    Ui::MainWindow ui; // oggetto UI generato
 
 };
 
