@@ -11,18 +11,22 @@
 #include <QStringList>
 #include <QStackedWidget>
 #include "ui_mainwindow.h"  
-
+#include <QStringListModel>
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
 public:
     MainWindow(QWidget *parent = nullptr);
 private slots: 
-    
-
+    void onDSCliked(const QModelIndex &index);
+    void onOpenStructure();
 
 private: 
     Ui::MainWindow ui; // oggetto UI generato
+    QStringListModel *modelListData;      // modello per la lista
+    QString selectedStructure;
+
+    
 
 };
 
